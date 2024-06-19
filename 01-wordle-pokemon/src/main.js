@@ -5,6 +5,7 @@ let $result =d.querySelector(".result");
 let $mainContainer = d.querySelector(".main-container");
 let $pokemonImg = d.querySelector(".pokemon")
 let rowId = 1;
+const MAX_TRIES = 5;
 
 const POKEMON_AVAILABLE = 900;
 const randomId = Math.ceil(Math.random() * (POKEMON_AVAILABLE -1)) ;
@@ -16,8 +17,6 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}/`)
   $loader.style.display = "none"
 })
 .then(data => {
-  // console.log(data.name)
-
   let pokemon = data.name;
   $pokemonImg.innerHTML = 
   ` <figure class="my-12">
@@ -124,7 +123,7 @@ function existLetters(array1, array2) {
 
 function createRow() {
   rowId++ 
-  if(rowId <= 5){
+  if(rowId <= MAX_TRIES){
   const newRow = d.createElement("div");
   newRow.classList.add("row")
   newRow.setAttribute("id", rowId)
