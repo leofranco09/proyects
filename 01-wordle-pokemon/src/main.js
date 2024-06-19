@@ -16,7 +16,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}/`)
   $loader.style.display = "none"
 })
 .then(data => {
-  console.log(data.name, data)
+  // console.log(data.name)
 
   let pokemon = data.name;
   $pokemonImg.innerHTML = 
@@ -102,11 +102,12 @@ function compareArrays(arr1, arr2) {
   let iqualIndex = []
   arr1.forEach((el, idx) =>{
     if(el == arr2[idx]){
-      console.log(`la posicio ${idx} si es correcta`);
+      // console.log(`la posicio ${idx} si es correcta`);
       iqualIndex.push(idx)
-    }else {
-      console.log(`la posicio ${idx} no es correcta`)
     }
+    // else {
+    //  console.log(`la posicio ${idx} no es correcta`)
+    // }
   })
   return iqualIndex
 }
