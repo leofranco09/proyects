@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="./src/index.css">
     <title>Wordle | Pokémon</title>
   </head>
-  <body>
-    <h1 class="text-center mt-5 font-bold text-3xl">Wordle | Pokémon</h1>
+  <body class="bg-mint-pearl dark:bg-graffito">
+    <header class="h-20 items-center mb-1 flex w-full justify-center relative">
+      <h1 class="text-center font-bold text-3xl dark:text-mint-pearl">Wordle | Pokémon</h1>
+      <button id="dark-mode" class="btn-mode dark:text-graffito bg-graffito dark:bg-mint-pearl text-mint-pearl absolute inset-y-auto end-2 py-2 px-2 rounded">🌑 Dark Mode</button>
+    </header>
+
     <main class="flex flex-col items-center main-container">
       <img src="./src/images/three-dots.svg" alt="loader" class="loader text-black pt-9">
       <figure class="pokemon">

@@ -1,4 +1,6 @@
 import confettiRun from "./confettiRun.js";
+import themeMode from "./darkMode.js";
+
 const d= document;
 
 let $result =d.querySelector(".result");
@@ -18,9 +20,10 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}/`)
 })
 .then(data => {
   let pokemon = data.name;
+  console.log(pokemon)
   $pokemonImg.innerHTML = 
   ` <figure class="my-12">
-  <img src="${data.sprites.other.showdown.front_default}" alt="${pokemon}" class="w-[150px] h-[150px] pokemon-img grayscale brightness-0">
+  <img src="${data.sprites.other.showdown.front_default}" alt="${pokemon}" class="w-[150px] h-[150px] pokemon-img grayscale brightness-0 dark:invert dark:brightness-100">
    </figure>`
 let pokemonArray = pokemon.toUpperCase().split("");// no poner upper antes de split xq este devuelve un array
 let actualRow = d.querySelector(".row");
@@ -70,7 +73,7 @@ function listenInput(actualRow) {
           if(rightIndex.length == pokemonArray.length){
             shewResult("Ganaste!");
             let $imgPokemon = d.querySelector(".pokemon-img");
-            $imgPokemon.classList.remove('grayscale', 'brightness-0')
+            $imgPokemon.classList.remove('grayscale', 'brightness-0', 'dark:invert', 'dark:brightness-100')
             confettiRun();
           
             return
@@ -150,7 +153,7 @@ function addFocus(actualRow) {
 }
 
 function shewResult(textmsg) {
-  $result.innerHTML = `<p>${textmsg}</p>
+  $result.innerHTML = `<p class="dark:text-mint-pearl">${textmsg}</p>
      <button 
      class="button w-[170px] h-[60px] bg-lime-600 text-2xl text-white rounded-2xl
      hover:border-[3px] hover:bg-white hover:text-lime-600 hover:border-lime-600 cursor-pointer">
@@ -162,3 +165,5 @@ function shewResult(textmsg) {
    })
 }
 });
+
+themeMode();
