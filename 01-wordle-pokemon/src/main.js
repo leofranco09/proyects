@@ -20,7 +20,7 @@ fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}/`)
 })
 .then(data => {
   let pokemon = data.name;
-  console.log(pokemon)
+  // console.log(pokemon)
   $pokemonImg.innerHTML = 
   ` <figure class="my-12">
   <img src="${data.sprites.other.showdown.front_default}" alt="${pokemon}" class="w-[150px] h-[150px] pokemon-img grayscale brightness-0 dark:invert dark:brightness-100">
@@ -156,7 +156,7 @@ function shewResult(textmsg) {
   $result.innerHTML = `<p class="dark:text-mint-pearl">${textmsg}</p>
      <button 
      class="button w-[170px] h-[60px] bg-lime-600 text-2xl text-white rounded-2xl
-     hover:border-[3px] hover:bg-white hover:text-lime-600 hover:border-lime-600 cursor-pointer">
+     hover:border-[3px] hover:bg-white hover:text-lime-600 hover:border-lime-600 cursor-pointer mb-11">
      Reiniciar
    </button>`;
    let resetBtn = d.querySelector(".button");
