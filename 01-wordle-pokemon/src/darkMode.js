@@ -1,18 +1,18 @@
 const d = document; 
 const ls = localStorage;
 const $themeBtn = d.getElementById("dark-mode");
-const light = "☀ Light Mode";
-const dark = "🌑 Dark Mode";
+const light = "☀";
+const dark = "🌑";
 
 export default function themeMode() {
     const lightMode = () => {
       d.documentElement.classList.remove("dark");
-      $themeBtn.textContent = light;
+      $themeBtn.textContent = dark;
       ls.theme = "light";
     };
     const darkMode = () => {
       d.documentElement.classList.add("dark");
-      $themeBtn.textContent = dark;
+      $themeBtn.textContent = light;
       ls.theme = "dark";
     };
     // verificamos si tiene almacenado en la pagina 
